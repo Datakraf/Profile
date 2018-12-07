@@ -13,7 +13,8 @@ class ProfilesController extends Controller
      * @return Response
      */
     public function index()
-    {
+    {   
+
         return view('profile::index');
     }
 

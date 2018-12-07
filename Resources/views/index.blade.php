@@ -7,7 +7,7 @@
         </h3>
     </div>
     <div class="card-body">
-        @include('profile::forms.personal-detail',
+        @include('profile::forms.personal-information',
         [
         'actionUrl'=> route('home'),
         'method' => 'POST'

@@ -22,6 +22,8 @@ return [
     'postcode' => 'postcode',
     'state' => 'state',
     'city' => 'city',
-    'country' => 'country'
-
+    'country' => 'country',
+    'vehicle-information' => 'vehicle information',
+    'motorcycle-reg-number' => 'motorcycle reg. no.',
+    'car-reg-number'=> 'car reg. no.'
 ];

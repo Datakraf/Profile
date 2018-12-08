@@ -12,5 +12,6 @@
 */
 
 Route::prefix('profile')->group(function() {
-    Route::get('/', 'ProfilesController@index');
+    Route::view('/', 'profile::forms.personal-detail',['actionUrl'=>'hello','method'=>'POST']);
+    Route::view('/family','profile::forms.family-detail',['actionUrl'=>'hello','method'=>'POST']);
 });

@@ -1,11 +1,11 @@
-@extends('profile::forms.master')
+@extends('profile::personal-details-master')
 @section('form-content')
 <form action="{{$actionUrl}}" method="{{$method}}">
     <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col">
-                    <h5>{{ucwords(__('profile::personal-detail.identity'))}}</h5>
+                    <h3>{{ucwords(__('profile::personal-detail.identity'))}}</h3>
                     <p class="help-text">
                         Personal information
                     </p>
@@ -78,7 +78,7 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    <h5>{{ucwords(__('profile::personal-detail.living-place'))}}</h5>
+                    <h3>{{ucwords(__('profile::personal-detail.living-place'))}}</h3>
                     <p class="help-text">
                         Personal information
                     </p>
@@ -125,7 +125,7 @@
             <hr>
             <div class="row">
                 <div class="col">
-                    <h5>{{ucwords(__('profile::personal-detail.vehicle-information'))}}</h5>
+                    <h3>{{ucwords(__('profile::personal-detail.vehicle-information'))}}</h3>
                     <p class="help-text">
                         Vehicle information (leave it blank if it is not available)
                     </p>

@@ -1,4 +1,4 @@
-@extends('profile::forms.master')
+@extends('profile::personal-details-master')
 @section('form-content')
 <form action="{{$actionUrl}}" method="{{$method}}">
     <div class="card">
@@ -36,7 +36,8 @@
                             <td>
                                 <input type="text" name="income-tax-number" class="form-control" />
                             </td>
-                            <td><a class="deleteRow">
+                            <td>
+                                <a class="deleteRow">
                                     <input type="button" class="btn btn-block" id="addrow" value="Add Row" />
                                 </a>
                             </td>

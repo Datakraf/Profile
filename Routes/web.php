@@ -30,4 +30,14 @@ Route::prefix('profile')->group(function () {
         Route::view('/', 'profile::forms.personal-details.experience', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.experience');
     });
 
+    Route::group(['prefix' => 'skills'], function () {
+        Route::view('/', 'profile::forms.personal-details.skills', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.skills');
+    });
+
+    Route::group(['prefix' => 'awards'], function () {
+        Route::view('/', 'profile::forms.personal-details.awards', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.awards');
+    });
+
+
+
 });

@@ -5,6 +5,6 @@ return [
     'study-level' => 'study level',
     'start-year' => 'starting year',
     'end-year' => 'graduation year',
-    'results' => 'result',
+    'result' => 'result',
     'course' => 'course'
 ];

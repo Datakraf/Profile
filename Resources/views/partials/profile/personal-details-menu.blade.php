@@ -15,4 +15,10 @@
         <a class="nav-link {{Route::currentRouteName() == 'profile.experience'  ? 'active':''}}" href="{{route('profile.experience')}}">Employment
             History</a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link {{Route::currentRouteName() == 'profile.skills'  ? 'active':''}}" href="{{route('profile.skills')}}">Skills</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {{Route::currentRouteName() == 'profile.awards'  ? 'active':''}}" href="{{route('profile.awards')}}">Awards</a>
+    </li>
 </ul>

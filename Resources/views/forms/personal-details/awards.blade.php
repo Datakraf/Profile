@@ -9,7 +9,7 @@
                         <tr>
                             <th>{{ucwords(__('profile::awards.award'))}}</th>
                             <th>{{ucwords(__('profile::awards.received-date'))}}</th>
-                            <th>{{ucwords(__('profile::awards.notes'))}}</th>                            
+                            <th>{{ucwords(__('profile::awards.notes'))}}</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -23,7 +23,7 @@
                             </td>
                             <td>
                                 <input type="text" name="notes" class="form-control" />
-                            </td>                           
+                            </td>
                             <td>
                                 <a class="deleteRow">
                                     <input type="button" class="btn btn-block" id="addrow" value="Add Row" />
@@ -51,7 +51,7 @@
             cols += '<td><input type="text" class="form-control" name="received_date' + counter +
                 '" /></td>';
             cols += '<td><input type="text" class="form-control" name="note' + counter +
-                '" /></td>';            
+                '" /></td>';
             cols +=
                 '<td><input type="button" class="ibtnDel btn btn-block btn-danger " value="Remove"></td>';
             newRow.append(cols);

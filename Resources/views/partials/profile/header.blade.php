@@ -1,10 +1,15 @@
 <header class="header bg-img" style="background-image: url(https://source.unsplash.com/WLUHO9A_xik/1600x900)">
+    <div class="col mt-2">
+        <button class="btn btn-primary btn-sm opacity pull-right opacity-75" onclick="document.getElementById('fileInput').click();"><i class="ti ti-pencil"></i> Change Background Image</button>
+        <input id="fileInput" type="file" style="display:none;" />
+    </div>
+
     <div class="header-info h-250px mb-0">
         <div class="media align-items-end">
             <img class="avatar avatar-xl avatar-bordered" src="https://api.adorable.io/avatars/285/abott@adorable.png">
             <div class="media-body">
-                <h3 class="text-white opacity-90"><strong>Maryam Amiri</strong></h3>
-                <small class="text-white opacity-60">Web Designer</small>
+                <h1 class="text-white"><strong>Maryam Amiri</strong></h1>
+                <p class="text-white">Web Designer</p>
             </div>
         </div>
     </div>

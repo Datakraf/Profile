@@ -11,10 +11,10 @@
 |
  */
 
-Route::prefix('profile')->group(function () {
+Route::group(['prefix' => 'profile', 'middleware' => ['auth']],function(){
 
     Route::view('/', 'profile::forms.personal-details.index', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.index');
-    
+    Route::post('/store', ['uses' => 'PersonalDetailsController@store', 'as' => 'profile.store']);
     // family
     Route::group(['prefix' => 'family'], function () {
         Route::view('/', 'profile::forms.personal-details.family-details', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.family');

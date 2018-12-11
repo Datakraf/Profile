@@ -1,10 +1,10 @@
 <ul class="nav nav-tabs nav-tabs-primary">
     <li class="nav-item">
-        <a class="nav-link {{Route::currentRouteName() == 'profile.index' ? 'active':''}}" href="{{route('profile.index')}}">Personal
+        <a class="nav-link {{Route::currentRouteName() == 'personal.index' ? 'active':''}}" href="{{route('personal.index')}}">Personal
             Information</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{Route::currentRouteName() == 'profile.family'  ? 'active':''}}" href="{{route('profile.family')}}">Family
+        <a class="nav-link {{Route::currentRouteName() == 'family.index'  ? 'active':''}}" href="{{route('family.index')}}">Family
             Information</a>
     </li>
     <li class="nav-item">

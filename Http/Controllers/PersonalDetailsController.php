@@ -8,7 +8,6 @@ use Illuminate\Routing\Controller;
 use Datakraf\User;
 use Modules\Profile\Entities\PersonalDetail;
 
-
 class PersonalDetailsController extends Controller
 {
     protected $personalDetail;
@@ -25,14 +24,14 @@ class PersonalDetailsController extends Controller
 
     public function index()
     {
-        $pd = $this->personalDetail->where('user_id', auth()->id())->first()->get();
-        return view('profile::forms.index', ['personalDetail' => $pd]);
+        $personalDetail = $this->personalDetail->where('user_id', auth()->id())->first();
+        return view('profile::forms.personal-details.index', compact('personalDetail'));
     }
 
     public function store(Request $request)
     {
         $data = $request->all();
-        PersonalDetail::updateOrCreate(['user_id'=>auth()->id()],$data);        
+        PersonalDetail::updateOrCreate(['user_id' => auth()->id()], $data);
         return redirect()->back();
     }
 }

@@ -1,6 +1,6 @@
 @extends('profile::personal-details-master')
 @section('form-content')
-<form action="{{route('profile.store')}}" method="POST">
+<form action="{{route('personal.store')}}" method="POST">
     @csrf
     <div class="card">
         <div class="card-body">
@@ -21,13 +21,13 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.ic-number'))}}</label>
-                                <input type="text" name="ic_number" id="" class="form-control" value="{{old('ic_number',isset($personalDetail->ic_number)?:null)}}">
+                                <input type="text" name="ic_number" id="" class="form-control" value="{{old('ic_number',isset($personalDetail->ic_number) ? $personalDetail->ic_number:null)}}">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.staff-no'))}}</label>
-                                <input type="text" name="staff_number" id="" class="form-control" value="{{old('staff_number',isset($personalDetail->staff_number)?:null)}}">
+                                <input type="text" name="staff_number" id="" class="form-control" value="{{old('staff_number',isset($personalDetail->staff_number)? $personalDetail->staff_number:null)}}">
                             </div>
                         </div>
                     </div>
@@ -35,37 +35,39 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.gender'))}}</label>
-                                <input type="text" name="gender" value="{{old('gender',isset($personalDetail->gender)?:null)}}" id=""
-                                    class="form-control">
+                                <input type="text" name="gender" value="{{old('gender',isset($personalDetail->gender)?$personalDetail->gender:null)}}"
+                                    id="" class="form-control">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.date-of-birth'))}}</label>
-                                <input type="text" name="date_of_birth" id="" class="form-control" value="{{old('date_of_birth',isset($personalDetail->date_of_birth)?:null)}}">
+                                <input type="text" name="date_of_birth" id="" class="form-control" value="{{old('date_of_birth',isset($personalDetail->date_of_birth)? $personalDetail->date_of_birth:null)}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">                        
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">{{ucwords(__('profile::personal-detail.mobile-number'))}}</label>
+                                <input type="text" name="mobile_number" id="" class="form-control" 
+                                value="{{old('phone_number',isset($personalDetail->phone_number)?$personalDetail->phone_number:null)}}">
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">{{ucwords(__('profile::personal-detail.mobile-number'))}}</label>
+                                <input type="text" name="mobile_number" id="" class="form-control" 
+                                value="{{old('mobile_number',isset($personalDetail->mobile_number)?$personalDetail->mobile_number:null)}}">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="">{{ucwords(__('profile::personal-detail.phone-number'))}}</label>
-                                <input type="text" name="phone_number" id="" class="form-control" value="
-                                {{old('phone-number',isset($personalDetail->phone_number)?:null)}}">
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="form-group">
-                                <label for="">{{ucwords(__('profile::personal-detail.mobile-number'))}}</label>
-                                <input type="text" name="mobile_number" id="" class="form-control" value="{{old('mobile_number',isset($personalDetail->mobile_number)?:null)}}">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">                    
-                        <div class="col">
-                            <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.alternative-email'))}}</label>
-                                <input type="text" name="alternative_email" id="" class="form-control" value="{{old('email',isset($personalDetail->alternative_email)?:null)}}">
+                                <input type="text" name="alternative_email" id="" class="form-control" 
+                                value="{{old('email',isset($personalDetail->alternative_email)?$personalDetail->alternative_email:null)}}">
                             </div>
                         </div>
                     </div>
@@ -84,23 +86,23 @@
                 <div class="col-8">
                     <div class="form-group">
                         <label for="">{{ucwords(__('profile::personal-detail.address-one'))}}</label>
-                        <input type="text" name="address_one" id="" class="form-control" value="{{old('address_one',isset($personalDetail->address_one)?:null)}}">
+                        <input type="text" name="address_one" id="" class="form-control" value="{{old('address_one',isset($personalDetail->address_one)? $personalDetail->address_one:null)}}">
                     </div>
                     <div class="form-group">
                         <label for="">{{ucwords(__('profile::personal-detail.address-two'))}}</label>
-                        <input type="text" name="address_two" id="" class="form-control" value="{{old('address_two',isset($personalDetail->address_two)?:null)}}">
+                        <input type="text" name="address_two" id="" class="form-control" value="{{old('address_two',isset($personalDetail->address_two)? $personalDetail->address_two:null)}}">
                     </div>
                     <div class="row">
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.city'))}}</label>
-                                <input type="text" name="city" id="" class="form-control" value="{{old('city',isset($personalDetail->city)?:null)}}">
+                                <input type="text" name="city" id="" class="form-control" value="{{old('city',isset($personalDetail->city)? $personalDetail->city:null)}}">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.postcode'))}}</label>
-                                <input type="text" name="postcode" id="" class="form-control" value="{{old('postcode',isset($personalDetail->postcode)?:null)}}">
+                                <input type="text" name="postcode" id="" class="form-control" value="{{old('postcode',isset($personalDetail->postcode)? $personalDetail->postcode:null)}}">
                             </div>
                         </div>
                     </div>
@@ -108,13 +110,13 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.state'))}}</label>
-                                <input type="text" name="state" id="" class="form-control" value="{{old('state',isset($personalDetail->state)?:null)}}">
+                                <input type="text" name="state" id="" class="form-control" value="{{old('state',isset($personalDetail->state)? $personalDetail->state:null)}}">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.country'))}}</label>
-                                <input type="text" name="country" id="" class="form-control" value="{{old('country',isset($personalDetail->country)?:null)}}">
+                                <input type="text" name="country" id="" class="form-control" value="{{old('country',isset($personalDetail->country)? $personalDetail->country:null)}}">
                             </div>
                         </div>
                     </div>
@@ -133,13 +135,13 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.motorcycle-reg-number'))}}</label>
-                                <input type="text" name="motorcycle_reg_number" id="" class="form-control" value="{{old('motorcycle_reg_number',isset($personalDetail->motorcycle_reg_number)?:null)}}">
+                                <input type="text" name="motorcycle_reg_number" id="" class="form-control" value="{{old('motorcycle_reg_number',isset($personalDetail->motorcycle_reg_number)? $personalDetail->motorcycle_reg_number:null)}}">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.car-reg-number'))}}</label>
-                                <input type="text" name="car_reg_number" id="" class="form-control" value="{{old('car_reg_number',isset($personalDetail->car_reg_number)?:null)}}">
+                                <input type="text" name="car_reg_number" id="" class="form-control" value="{{old('car_reg_number',isset($personalDetail->car_reg_number)? $personalDetail->car_reg_number:null)}}">
                             </div>
                         </div>
                     </div>
@@ -148,7 +150,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary pull-right">{{ucwords('update')}}</button>
+                        <button type="submit" class="btn btn-primary btn-lg pull-right">{{isset($personalDetail) ? ucwords('update'):ucwords('save')}}</button>
                     </div>
                 </div>
             </div>

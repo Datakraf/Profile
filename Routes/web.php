@@ -11,13 +11,17 @@
 |
  */
 
-Route::group(['prefix' => 'profile', 'middleware' => ['auth']],function(){
+Route::group(['prefix' => 'profile', 'middleware' => ['auth']], function () {
 
-    Route::view('/', 'profile::forms.personal-details.index', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.index');
-    Route::post('/store', ['uses' => 'PersonalDetailsController@store', 'as' => 'profile.store']);
+    Route::group(['prefix' => 'personal-details'], function () {
+        Route::get('/', ['uses' => 'PersonalDetailsController@index', 'as' => 'personal.index']);
+        Route::post('store', ['uses' => 'PersonalDetailsController@store', 'as' => 'personal.store']);
+    });
+    
     // family
     Route::group(['prefix' => 'family'], function () {
-        Route::view('/', 'profile::forms.personal-details.family-details', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.family');
+        Route::get('/', ['uses'=>'FamiliesController@index','as'=>'family.index']);
+        Route::post('store', ['uses'=>'FamiliesController@store','as'=>'family.store']);
     });
 
     // academic

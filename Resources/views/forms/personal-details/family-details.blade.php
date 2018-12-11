@@ -1,6 +1,7 @@
 @extends('profile::personal-details-master')
 @section('form-content')
-<form action="{{$actionUrl}}" method="{{$method}}">
+<form action="{{route('family.store')}}" method="POST">
+    @csrf
     <div class="card">
         <div class="card-body">
             <div class="row">
@@ -19,10 +20,11 @@
                     <tbody>
                         <tr>
                             <td>
+                                <input type="hidden" name="user_id" value="{{Auth::id()}}">
                                 <input type="text" name="name" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="relationship" class="form-control" />
+                                <input type="text" name="relationship_id" class="form-control" />
                             </td>
                             <td>
                                 <input type="text" name="ic_number" class="form-control" />
@@ -34,7 +36,7 @@
                                 <input type="text" name="occupation" class="form-control" />
                             </td>
                             <td>
-                                <input type="text" name="income-tax-number" class="form-control" />
+                                <input type="text" name="income_tax_number" class="form-control" />
                             </td>
                             <td>
                                 <a class="deleteRow">
@@ -46,6 +48,11 @@
                 </table>
             </div>
         </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg pull-right">
+            Submit
+        </button>
     </div>
 </form>
 @endsection

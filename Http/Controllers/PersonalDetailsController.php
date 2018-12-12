@@ -7,9 +7,13 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Datakraf\User;
 use Modules\Profile\Entities\PersonalDetail;
+use Alert;
+use Datakraf\Traits\AlertMessage;
 
 class PersonalDetailsController extends Controller
 {
+    use AlertMessage;
+
     protected $personalDetail;
 
     public function __construct(PersonalDetail $personalDetail)
@@ -32,6 +36,7 @@ class PersonalDetailsController extends Controller
     {
         $data = $request->all();
         PersonalDetail::updateOrCreate(['user_id' => auth()->id()], $data);
+        toast($this->message('save', 'Personal detail record'), 'success', 'top-right');
         return redirect()->back();
     }
 }

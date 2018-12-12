@@ -8,28 +8,29 @@ use Illuminate\Routing\Controller;
 use Datakraf\Traits\Crudable;
 use Modules\Profile\Entities\Family;
 use Datakraf\User;
+use Alert;
+use Datakraf\Traits\AlertMessage;
 
 class FamiliesController extends Controller
 {
-    use Crudable;
+    use Crudable, AlertMessage;
+
+    protected $familyRecord;
+
+    public function __construct(Family $familyRecord)
+    {
+        $this->familyRecord = $familyRecord;
+    }
+
     /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return view('profile::forms.personal-details.family-details');
+        $familyRecord = $this->familyRecord->where('user_id', auth()->id())->get();
+        return view('profile::forms.personal-details.family-details', compact('familyRecord'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     * @return Response
-     */
-    public function create()
-    {
-        return view('profile::create');
-    }
-
     /**
      * Store a newly created resource in storage.
      * @param  Request $request
@@ -37,9 +38,22 @@ class FamiliesController extends Controller
      */
     public function store(Request $request)
     {
-        $user = User::find(auth()->id());
-        $user->families()->createMany([$request->all()]);
+        for ($i = 0; $i < count($request->name); ++$i) {
+            Family::create([
+                'user_id' => auth()->id(),
+                'name' => $request->name[$i],
+                'relationship_id' => $request->relationship_id[$i],
+                'ic_number' => $request->ic_number[$i],
+                'mobile_number' => $request->mobile_number[$i],
+                'occupation' => $request->occupation[$i],
+                'income_tax_number' => $request->income_tax_number[$i]
+            ]);
+        }
+        toast($this->message('save', 'Family record'), 'success', 'top-right');
+        return redirect()->back();
+
     }
+
 
     /**
      * Show the specified resource.

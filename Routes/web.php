@@ -26,12 +26,14 @@ Route::group(['prefix' => 'profile', 'middleware' => ['auth']], function () {
 
     // academic
     Route::group(['prefix' => 'academic'], function () {
-        Route::view('/', 'profile::forms.personal-details.academic', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.academic-records');
+        Route::get('/', ['uses'=>'AcademicsController@index','as'=>'academic.index']);
+        Route::post('store', ['uses'=>'AcademicsController@store','as'=>'academic.store']);
     });
     
     // experience
     Route::group(['prefix' => 'employment-history'], function () {
-        Route::view('/', 'profile::forms.personal-details.experience', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.experience');
+        Route::get('/', ['uses'=>'ExperiencesController@index','as'=>'experience.index']);
+        Route::post('store', ['uses'=>'ExperiencesController@store','as'=>'experience.store']);
     });
 
     Route::group(['prefix' => 'skills'], function () {

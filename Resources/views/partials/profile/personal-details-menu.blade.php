@@ -8,11 +8,11 @@
             Information</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{Route::currentRouteName() == 'profile.academic-records'  ? 'active':''}}" href="{{route('profile.academic-records')}}">Academic
+        <a class="nav-link {{Route::currentRouteName() == 'academic.index'  ? 'active':''}}" href="{{route('academic.index')}}">Academic
             Records</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{Route::currentRouteName() == 'profile.experience'  ? 'active':''}}" href="{{route('profile.experience')}}">Employment
+        <a class="nav-link {{Route::currentRouteName() == 'experience.index'  ? 'active':''}}" href="{{route('experience.index')}}">Employment
             History</a>
     </li>
     <li class="nav-item">

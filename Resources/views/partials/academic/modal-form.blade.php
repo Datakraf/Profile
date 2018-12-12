@@ -1,11 +1,11 @@
-<div class="modal fade" id="add-experience-records" tabindex="-1" role="dialog" aria-labelledby="add-family-records"
+<div class="modal fade" id="add-academic-records" tabindex="-1" role="dialog" aria-labelledby="add-academic-records"
     aria-hidden="true">
-    <form action="{{route('experience.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('academic.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add Employment History Records</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Add Academic Records</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -13,10 +13,10 @@
                 <div class="modal-body">
                     <table id="myTable" class="table table-bordered dynamic-list w-20">
                         <thead>
-                            @include('profile::partials.experience.table-header')
+                            @include('profile::partials.academic.table-header')
                         </thead>
                         <tbody>
-                            @include('profile::partials.experience.input')
+                            @include('profile::partials.academic.input')
                         </tbody>
                     </table>
                 </div>

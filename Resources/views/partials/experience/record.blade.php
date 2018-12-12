@@ -1,26 +1,20 @@
-@if(count($familyRecord))
-@foreach($familyRecord as $key=> $record)
+@if(count($experience))
+@foreach($experience as $key=> $record)
 <tr>
     <td>
-        {{++$key}}
+       #
     </td>
     <td>
-        <p>{{$record->name}}</p>
+        <p>{{$record->company}}</p>
     </td>
     <td>
-        <p>{{$record->relationship_id}}</p>
+        <p>{{$record->position}}</p>
     </td>
     <td>
-        <p>{{$record->ic_number}}</p>
+        <p>{{$record->start_year}}</p>
     </td>
     <td>
-        <p>{{$record->mobile_number}}</p>
-    </td>
-    <td>
-        <p>{{$record->occupation}}</p>
-    </td>
-    <td>
-        <p>{{$record->income_tax_number}} </p>
+        <p>{{$record->end_year}}</p>
     </td>
     <td>
     </td>
@@ -28,8 +22,8 @@
 @endforeach
 @else
 <tr>
-    <td>
-        No family records can be found.
+    <td colspan="6">
+        <p class="text-center">No employment history can be found.</p>
     </td>
 </tr>
 @endif

@@ -1,70 +1,31 @@
 @extends('profile::personal-details-master')
+@section('page-title')
+    Award Records
+@endsection
 @section('form-content')
-<form action="{{$actionUrl}}" method="{{$method}}">
-    <div class="card">
-        <div class="card-body">
-            <div class="row">
-                <table id="myTable" class="table table-bordered dynamic-list">
-                    <thead>
-                        <tr>
-                            <th>{{ucwords(__('profile::awards.award'))}}</th>
-                            <th>{{ucwords(__('profile::awards.received-date'))}}</th>
-                            <th>{{ucwords(__('profile::awards.notes'))}}</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <input type="text" name="award" class="form-control" />
-                            </td>
-                            <td>
-                                <input type="text" name="received_date" class="form-control" />
-                            </td>
-                            <td>
-                                <input type="text" name="notes" class="form-control" />
-                            </td>
-                            <td>
-                                <a class="deleteRow">
-                                    <input type="button" class="btn btn-block" id="addrow" value="Add Row" />
-                                </a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary btn-md pull-right" data-toggle="modal" data-target="#add-award-records">
+                <i class="ti ti-plus"></i> Add Award Record(s)
+            </button>
         </div>
     </div>
-</form>
+    <div class="row">
+        <div class="col">
+            <table class="table table-bordered mt-3">
+                <thead class="thead-light">
+                    @include('profile::partials.awards.table-header')
+                </thead>
+                <tbody>
+                    @include('profile::partials.awards.record')
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+@include('profile::partials.awards.modal-form')
 @endsection
 @section('page-js')
-<script type="text/javascript">
-    $(document).ready(function () {
-        var counter = 0;
-
-        $("#addrow").on("click", function () {
-            var newRow = $("<tr>");
-            var cols = "";
-
-            cols += '<td><input type="text" class="form-control" name="award' + counter +
-                '" /></td>';
-            cols += '<td><input type="text" class="form-control" name="received_date' + counter +
-                '" /></td>';
-            cols += '<td><input type="text" class="form-control" name="note' + counter +
-                '" /></td>';
-            cols +=
-                '<td><input type="button" class="ibtnDel btn btn-block btn-danger " value="Remove"></td>';
-            newRow.append(cols);
-            $("table.dynamic-list").append(newRow);
-            counter++;
-        });
-
-        $("table.dynamic-list").on("click", ".ibtnDel", function (event) {
-            $(this).closest("tr").remove();
-            counter -= 1
-        });
-    });
-
-</script>
-
+@include('profile::partials.awards.script')
 @endsection

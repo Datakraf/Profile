@@ -16,7 +16,7 @@ return [
     'alternative-email' => 'alternative email',
     'phone-number' => 'phone no.',
     'mobile-number' => 'mobile no.',
-    'living-place'=> 'active address',
+    'living-place' => 'active address',
     'address-one' => 'address one',
     'address-two' => 'address two',
     'postcode' => 'postcode',
@@ -25,5 +25,7 @@ return [
     'country' => 'country',
     'vehicle-information' => 'vehicle information',
     'motorcycle-reg-number' => 'motorcycle reg. no.',
-    'car-reg-number'=> 'car reg. no.'
+    'car-reg-number' => 'car reg. no.',
+    'marital-status' => 'marital status',
+    'marriage-date' => 'date of marriage'
 ];

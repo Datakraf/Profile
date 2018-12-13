@@ -1,6 +1,6 @@
 @extends('profile::personal-details-master')
 @section('page-title')
-    Personal Details
+Personal Details
 @endsection
 @section('form-content')
 <form action="{{route('personal.store')}}" method="POST">
@@ -49,19 +49,39 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">                        
+                    <div class="row">
                         <div class="col">
                             <div class="form-group">
-                                <label for="">{{ucwords(__('profile::personal-detail.mobile-number'))}}</label>
-                                <input type="text" name="mobile_number" id="" class="form-control" 
-                                value="{{old('phone_number',isset($personalDetail->phone_number)?$personalDetail->phone_number:null)}}">
+                                <label for="">{{ucwords(__('profile::personal-detail.ic-number'))}}</label>
+                                <input type="text" name="ic_number" id="" class="form-control" value="{{old('ic_number',isset($personalDetail->ic_number) ? $personalDetail->ic_number:null)}}">
                             </div>
                         </div>
                         <div class="col">
                             <div class="form-group">
-                                <label for="">{{ucwords(__('profile::personal-detail.mobile-number'))}}</label>
-                                <input type="text" name="mobile_number" id="" class="form-control" 
-                                value="{{old('mobile_number',isset($personalDetail->mobile_number)?$personalDetail->mobile_number:null)}}">
+                                <label for="">{{ucwords(__('profile::personal-detail.staff-no'))}}</label>
+                                <input type="text" name="staff_number" id="" class="form-control" value="{{old('staff_number',isset($personalDetail->staff_number)? $personalDetail->staff_number:null)}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">{{ucwords(__('profile::personal-detail.marital-status'))}}</label>
+                                <select name="marital_status" id="marital_status" class="form-control">
+                                    <option value="">Please choose</option>
+                                    <option value="Single" {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Single'? 'selected':''}}>Single</option>
+                                    <option value="Married" {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Married'? 'selected':''}}>Married</option>
+                                    <option value="Widowed"{{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Widowed'? 'selected':''}}>Widowed</option>
+                                    <option value="Divorced"{{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Divorced'? 'selected':''}}>Divorced</option>
+                                    <option value="Seperated"{{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Seperated'? 'selected':''}}>Seperated</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="">{{ucwords(__('profile::personal-detail.marriage-date'))}}</label>
+                                <input type="text" name="date_of_marriage" id="date_of_marriage" class="form-control"
+                                    value="{{old('date_of_marriage',isset($personalDetail->date_of_marriage)?$personalDetail->date_of_marriage:null)}}">
                             </div>
                         </div>
                     </div>
@@ -69,8 +89,7 @@
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.alternative-email'))}}</label>
-                                <input type="text" name="alternative_email" id="" class="form-control" 
-                                value="{{old('email',isset($personalDetail->alternative_email)?$personalDetail->alternative_email:null)}}">
+                                <input type="text" name="alternative_email" id="" class="form-control" value="{{old('email',isset($personalDetail->alternative_email)?$personalDetail->alternative_email:null)}}">
                             </div>
                         </div>
                     </div>
@@ -153,7 +172,8 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary btn-lg pull-right">{{isset($personalDetail) ? ucwords('update'):ucwords('save')}}</button>
+                        <button type="submit" class="btn btn-primary btn-lg pull-right">{{isset($personalDetail) ?
+                            ucwords('update'):ucwords('save')}}</button>
                     </div>
                 </div>
             </div>
@@ -161,4 +181,20 @@
 
     </div>
 </form>
+@endsection
+@section('page-js')
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#date_of_marriage").prop("disabled", true);
+        $("#marital_status").change(function () {
+            if ($(this).val() === "Married") {
+                $("#date_of_marriage").prop("disabled", false);
+            } else {
+                $("#date_of_marriage").prop("disabled", true);
+            }
+        });
+
+    });
+
+</script>
 @endsection

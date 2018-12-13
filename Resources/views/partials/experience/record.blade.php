@@ -2,7 +2,7 @@
 @foreach($experience as $key=> $record)
 <tr>
     <td>
-       #
+       {{++$key}}
     </td>
     <td>
         <p>{{$record->company}}</p>

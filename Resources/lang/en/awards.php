@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'award' => 'award name',
+    'name' => 'award name',
     'received-date' => 'date received',
     'notes' => 'notes'
 

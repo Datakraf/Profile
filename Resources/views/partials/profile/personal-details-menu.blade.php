@@ -16,9 +16,9 @@
             History</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{Route::currentRouteName() == 'profile.skills'  ? 'active':''}}" href="{{route('profile.skills')}}">Skills</a>
+        <a class="nav-link {{Route::currentRouteName() == 'skill.index'  ? 'active':''}}" href="{{route('skill.index')}}">Skills</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link {{Route::currentRouteName() == 'profile.awards'  ? 'active':''}}" href="{{route('profile.awards')}}">Awards</a>
+        <a class="nav-link {{Route::currentRouteName() == 'award.index'  ? 'active':''}}" href="{{route('award.index')}}">Awards</a>
     </li>
 </ul>

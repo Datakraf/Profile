@@ -1,4 +1,7 @@
 @extends('profile::personal-details-master')
+@section('page-title')
+    Academic Records
+@endsection
 @section('form-content')
 <div class="container">
     <div class="row">

@@ -1,4 +1,7 @@
 @extends('profile::personal-details-master')
+@section('page-title')
+    Personal Details
+@endsection
 @section('form-content')
 <form action="{{route('personal.store')}}" method="POST">
     @csrf

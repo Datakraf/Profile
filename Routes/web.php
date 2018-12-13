@@ -37,11 +37,13 @@ Route::group(['prefix' => 'profile', 'middleware' => ['auth']], function () {
     });
 
     Route::group(['prefix' => 'skills'], function () {
-        Route::view('/', 'profile::forms.personal-details.skills', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.skills');
+        Route::get('/', ['uses'=>'SkillsController@index','as'=>'skill.index']);
+        Route::post('store', ['uses'=>'SkillsController@store','as'=>'skill.store']);
     });
 
     Route::group(['prefix' => 'awards'], function () {
-        Route::view('/', 'profile::forms.personal-details.awards', ['actionUrl' => 'hello', 'method' => 'POST'])->name('profile.awards');
+        Route::get('/', ['uses'=>'AwardsController@index','as'=>'award.index']);
+        Route::post('store', ['uses'=>'AwardsController@store','as'=>'award.store']);
     });
 
 

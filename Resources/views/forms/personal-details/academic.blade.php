@@ -1,4 +1,4 @@
-@extends('profile::personal-details-master')
+@extends('profile::master')
 @section('page-title')
     Academic Records
 @endsection

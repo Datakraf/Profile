@@ -10,16 +10,19 @@ use Modules\Profile\Entities\Family;
 use Datakraf\User;
 use Alert;
 use Datakraf\Traits\AlertMessage;
+use Modules\Profile\Entities\FamilyType;
 
 class FamiliesController extends Controller
 {
     use Crudable, AlertMessage;
 
     protected $familyRecord;
+    protected $familyType;
 
-    public function __construct(Family $familyRecord)
+    public function __construct(Family $familyRecord,FamilyType $type)
     {
         $this->familyRecord = $familyRecord;
+        $this->type = $type;
     }
 
     /**
@@ -29,7 +32,8 @@ class FamiliesController extends Controller
     public function index()
     {
         $familyRecord = $this->familyRecord->where('user_id', auth()->id())->get();
-        return view('profile::forms.personal-details.family-details', compact('familyRecord'));
+        $types = $this->type->all();
+        return view('profile::forms.personal-details.family-details', compact('familyRecord','types'));
     }
     /**
      * Store a newly created resource in storage.

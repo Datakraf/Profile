@@ -7,6 +7,11 @@
         <input type="text" name="name[]" class="form-control" />
     </td>
     <td>
+        <select name="" id="">
+            @foreach($types as $type)
+                <option value="{{$type->id}}">{{$type->name}}</option>
+            @endforeach
+        </select>
         <input type="text" name="relationship_id[]" class="form-control" />
     </td>
     <td>

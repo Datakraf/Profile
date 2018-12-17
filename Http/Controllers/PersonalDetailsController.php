@@ -23,15 +23,21 @@ class PersonalDetailsController extends Controller
 
     /**
      * fetch personal details
-     * 
+     *
+     * @return void
      */
-
     public function index()
     {
         $personalDetail = $this->personalDetail->where('user_id', auth()->id())->first();
-        return view('profile::forms.personal-details.index', compact('personalDetail'));
+        return view('profile::forms.personal-details.personal-details', compact('personalDetail'));
     }
 
+    /**
+     * Create or Update personal details
+     *
+     * @param Request $request
+     * @return void
+     */
     public function store(Request $request)
     {
         $data = $request->all();

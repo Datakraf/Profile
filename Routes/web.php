@@ -54,13 +54,27 @@ Route::group(['prefix' => 'profile', 'middleware' => ['auth']], function () {
 
     Route::group(['prefix' => 'administration'], function () {
         Route::group(['prefix' => 'family-types'], function () {
+<<<<<<< HEAD
             Route::get('/', ['uses' => 'FamilyTypesController@index', 'as' => 'family-type.index']);
             Route::post('store', ['uses' => 'FamilyTypesController@store', 'as' => 'family-type.store']);
             Route::post('{id}/update', ['uses' => 'FamilyTypesController@update', 'as' => 'family-type.update']);
             Route::get('{id}/edit', ['uses' => 'FamilyTypesController@edit', 'as' => 'family-type.edit']);
             Route::delete('{id}/delete', ['uses' => 'FamilyTypesController@destroy', 'as' => 'family-type.destroy']);
+=======
+        Route::get('/', ['uses' => 'FamilyTypesController@index', 'as' => 'family-type.index']);            
+        Route::post('store', ['uses' => 'FamilyTypesController@store', 'as' => 'family-type.store']);
+        Route::post('{id}/update', ['uses' => 'FamilyTypesController@update', 'as' => 'family-type.update']);
+        Route::get('{id}/edit', ['uses' => 'FamilyTypesController@edit', 'as' => 'family-type.edit']);
+        Route::delete('{id}/delete', ['uses' => 'FamilyTypesController@destroy', 'as' => 'family-type.destroy']);
+>>>>>>> 54f43f064e84834ad7339dfba7216abd7aed71c8
         });
 
     });
+
+    Route::get('/personal-details', function () {
+        return view('profile::profile.member.viewProfile');
+    })->name('member.viewProfile');
+
+
 
 });

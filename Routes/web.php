@@ -61,6 +61,14 @@ Route::group(['prefix' => 'profile', 'middleware' => ['auth']], function () {
             Route::delete('{id}/delete', ['uses' => 'FamilyTypesController@destroy', 'as' => 'family-type.destroy']);
         });
 
+        Route::group(['prefix' => 'positions'], function () {
+            Route::get('/', ['uses' => 'PositionsController@index', 'as' => 'position.index']);
+            Route::post('store', ['uses' => 'PositionsController@store', 'as' => 'position.store']);
+            Route::post('{id}/update', ['uses' => 'PositionsController@update', 'as' => 'position.update']);
+            Route::get('{id}/edit', ['uses' => 'PositionsController@edit', 'as' => 'position.edit']);
+            Route::delete('{id}/delete', ['uses' => 'PositionsController@destroy', 'as' => 'position.destroy']);
+        });
+
     });
 
 });

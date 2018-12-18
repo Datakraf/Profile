@@ -3,11 +3,7 @@
 Personal Details
 @endsection
 @section('form-content')
-<<<<<<< HEAD
 <form action="{{route('personal.store')}}" method="POST" enctype="multipart/form-data">
-=======
-<form action="#">
->>>>>>> 54f43f064e84834ad7339dfba7216abd7aed71c8
     @csrf
     <div class="card">
         <div class="card-body">

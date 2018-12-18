@@ -27,5 +27,6 @@ return [
     'motorcycle-reg-number' => 'motorcycle reg. no.',
     'car-reg-number' => 'car reg. no.',
     'marital-status' => 'marital status',
-    'marriage-date' => 'date of marriage'
+    'marriage-date' => 'date of marriage',
+    'avatar' => 'avatar'
 ];

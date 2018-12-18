@@ -3,15 +3,36 @@
 Personal Details
 @endsection
 @section('form-content')
-<form action="{{route('personal.store')}}" method="POST">
+<form action="{{route('personal.store')}}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="card">
         <div class="card-body">
             <div class="row">
                 <div class="col-4">
+                    <h3>{{ucwords(__('profile::personal-detail.avatar'))}}</h3>
+                    <p class="help-text">
+                        Upload your profile picture
+                    </p>
+                </div>
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-4">
+                            <div class="form-group">
+                                <label for="">{{ucwords(__('profile::personal-detail.avatar'))}}</label>
+                                <input type="file" name="avatar" id="" class="form-control">
+                                <div class="badge badge-md badge-info">Existing file:</div>
+                                
+                            </div>
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-4">
                     <h3>{{ucwords(__('profile::personal-detail.identity'))}}</h3>
                     <p class="help-text">
-                        Personal information
+                        Avatars
                     </p>
                 </div>
                 <div class="col-8">
@@ -69,11 +90,16 @@ Personal Details
                                 <label for="">{{ucwords(__('profile::personal-detail.marital-status'))}}</label>
                                 <select name="marital_status" id="marital_status" class="form-control">
                                     <option value="">Please choose</option>
-                                    <option value="Single" {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Single'? 'selected':''}}>Single</option>
-                                    <option value="Married" {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Married'? 'selected':''}}>Married</option>
-                                    <option value="Widowed"{{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Widowed'? 'selected':''}}>Widowed</option>
-                                    <option value="Divorced"{{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Divorced'? 'selected':''}}>Divorced</option>
-                                    <option value="Seperated"{{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Seperated'? 'selected':''}}>Seperated</option>
+                                    <option value="Single"
+                                        {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Single'? 'selected':''}}>Single</option>
+                                    <option value="Married"
+                                        {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Married'? 'selected':''}}>Married</option>
+                                    <option value="Widowed"
+                                        {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Widowed'? 'selected':''}}>Widowed</option>
+                                    <option value="Divorced"
+                                        {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Divorced'? 'selected':''}}>Divorced</option>
+                                    <option value="Seperated"
+                                        {{isset($personalDetail->marital_status) && $personalDetail->marital_status == 'Seperated'? 'selected':''}}>Seperated</option>
                                 </select>
                             </div>
                         </div>

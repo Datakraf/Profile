@@ -10,7 +10,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Modules\\Profile\\Providers\\ProfileServiceProvider"
+                "Modules\\Profile\\Providers\\ProfileServiceProvider",
+                "Modules\\Profile\\Providers\\EventServiceProvider"
             ],
             "aliases": {
                 

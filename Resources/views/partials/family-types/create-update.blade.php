@@ -16,7 +16,7 @@
             @if(isset($entity) && url()->current() == route('family-type.edit',['id'=>$entity->id]))
                 <a href="{{route('family-type.index')}}" class="btn btn-secondary text-dark">Cancel</a>
             @endif
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">{{isset($entity)?'Update':'Create'}}</button>
         </div>
     </form>
 

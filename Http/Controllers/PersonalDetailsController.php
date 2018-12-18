@@ -40,7 +40,7 @@ class PersonalDetailsController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = $request->all();        
         PersonalDetail::updateOrCreate(['user_id' => auth()->id()], $data);
         toast($this->message('save', 'Personal detail record'), 'success', 'top-right');
         return redirect()->back();

@@ -8,7 +8,7 @@
         <p>{{$record->name}}</p>
     </td>
     <td>
-        <p>{{$record->relationship_id}}</p>
+        <p>{{$record->type->name}}</p>
     </td>
     <td>
         <p>{{$record->ic_number}}</p>

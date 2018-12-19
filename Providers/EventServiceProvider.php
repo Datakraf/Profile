@@ -4,8 +4,8 @@ namespace Modules\Profile\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
-use Modules\Profile\Events\PersonalDetailCreated;
-use Modules\Profile\Listeners\UploadAvatar;
+use Datakraf\Events\UserCreated;
+use Modules\Profile\Listeners\CreatePersonalDetail;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -17,8 +17,8 @@ class EventServiceProvider extends ServiceProvider
     protected $defer = false;
 
     protected $listen = [
-        PersonalDetailCreated::class => [
-            UploadAvatar::class
+        UserCreated::class => [
+            CreatePersonalDetail::class
         ]
     ];
     /**

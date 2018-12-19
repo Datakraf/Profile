@@ -9,7 +9,7 @@
             <img class="avatar avatar-xl avatar-bordered" src="https://api.adorable.io/avatars/285/abott@adorable.png">
             <div class="media-body">
                 <h1 class="text-white"><strong>{{auth()->user()->name}}</strong></h1>
-                <p class="text-white">{{auth()->user()->personalDetail->position->name}}</p>
+                 
             </div>
         </div>
     </div>

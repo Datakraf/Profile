@@ -66,7 +66,7 @@ Personal Details
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.date-of-birth'))}}</label>
-                                <input type="text" name="date_of_birth" id="" class="form-control" value="{{old('date_of_birth',isset($personalDetail->date_of_birth)? $personalDetail->date_of_birth:null)}}">
+                                <input type="text" name="date_of_birth" id="" class="form-control date-of-birth" value="{{old('date_of_birth',isset($personalDetail->date_of_birth)? $personalDetail->date_of_birth:null)}}">
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@ Personal Details
                         <div class="col">
                             <div class="form-group">
                                 <label for="">{{ucwords(__('profile::personal-detail.marriage-date'))}}</label>
-                                <input type="text" name="date_of_marriage" id="date_of_marriage" class="form-control"
+                                <input type="text" name="date_of_marriage" id="date_of_marriage" class="form-control marriage-date"
                                     value="{{old('date_of_marriage',isset($personalDetail->date_of_marriage)?$personalDetail->date_of_marriage:null)}}">
                             </div>
                         </div>
@@ -209,6 +209,7 @@ Personal Details
 </form>
 @endsection
 @section('page-js')
+@include('asset-partials.datepicker')
 <script type="text/javascript">
     $(document).ready(function () {
         $("#date_of_marriage").prop("disabled", true);
@@ -221,6 +222,13 @@ Personal Details
         });
 
     });
-
+</script>
+<script type="text/javascript">
+    $('.marriage-date').datepicker({
+        format: "dd/mm/yyyy",
+    });
+    $('.date-of-birth').datepicker({
+        format: "dd/mm/yyyy",
+    });
 </script>
 @endsection

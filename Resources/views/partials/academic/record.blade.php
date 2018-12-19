@@ -11,10 +11,10 @@
         <p>{{$record->study_level}}</p>
     </td>
     <td>
-        <p>{{$record->start_year}}</p>
+        <p>{{$record->start_date}}</p>
     </td>
     <td>
-        <p>{{$record->end_year}}</p>
+        <p>{{$record->end_date}}</p>
     </td>
     <td>
         <p>{{$record->course}}</p>

@@ -28,4 +28,17 @@
 @endsection
 @section('page-js')
 @include('profile::partials.experience.script')
+@include('asset-partials.datepicker')
+<script type="text/javascript">
+    var date = new Date();
+    date.setDate(date.getDate());
+
+    $('.start-date').datepicker({
+        format: "dd/mm/yyyy",       
+    });
+    $('.end-date').datepicker({
+        format: "dd/mm/yyyy",        
+    });
+
+</script>
 @endsection

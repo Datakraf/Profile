@@ -1,6 +1,6 @@
 @extends('profile::master')
 @section('page-title')
-    Award Records
+Award Records
 @endsection
 @section('form-content')
 <div class="container">
@@ -28,4 +28,10 @@
 @endsection
 @section('page-js')
 @include('profile::partials.awards.script')
+@include('asset-partials.datepicker')
+<script type="text/javascript">
+    $('.received-date').datepicker({
+        format: "dd/mm/yyyy",
+    });
+</script>
 @endsection

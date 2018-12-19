@@ -33,8 +33,8 @@ class AcademicsController extends Controller
                 'user_id' => auth()->id(),
                 'institution' => $request->institution[$i],
                 'study_level' => $request->study_level[$i],
-                'start_year' => $request->start_year[$i],
-                'end_year' => $request->end_year[$i],
+                'start_date' => $request->start_date[$i],
+                'end_date' => $request->end_date[$i],
                 'course' => $request->course[$i],
                 'result' => $request->result[$i],
             ]);

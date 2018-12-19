@@ -7,7 +7,9 @@
             var cols = "";
             cols += '<td>' + counter + '</td>';
             cols += '<td><input type="text" class="form-control" name="name[]" /></td>';
-            cols += '<td><input type="text" class="form-control" name="relationship_id[]" /></td>';
+            cols += '<td>';
+            cols += '<select name="relationship_id[]" id="" class="form-control">@foreach($types as $type)';
+            cols += '<option value="{{$type->id}}" >{{$type->name}}</option>@endforeach</select></td>';
             cols += '<td><input type="text" class="form-control" name="ic_number[]" /></td>';
             cols += '<td><input type="text" class="form-control" name="mobile_number[]" /></td>';
             cols += '<td><input type="text" class="form-control" name="occupation[]" /></td>';

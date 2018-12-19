@@ -10,11 +10,7 @@ use Modules\Profile\Entities\Position;
 class PersonalDetail extends Model
 {
     protected $table = 'personaldetails';
-
-    protected $dispatchesEvents = [
-        'saving' => PersonalDetailCreated::class,
-        // 'updating' => PersonalDetailCreated::class
-    ];
+    
     protected $guarded = [];
 
     public function user()
@@ -24,5 +20,22 @@ class PersonalDetail extends Model
 
     public function position(){
         return $this->belongsTo(Position::class,'position_id');
+    }
+
+    public function setDateOfBirthAttribute($value)
+    {
+        $this->attributes['date_of_birth'] = Carbon::createFromFormat(config('app.date_format'), $value)->format('Y-m-d');
+    }
+    public function getDateOfBirthAttribute($value)
+    {
+        return Carbon::createFromFormat('Y-m-d', $value)->format(config('app.date_format'));
+    }
+    public function setDateOfMarriageAttribute($value)
+    {
+        $this->attributes['end_date'] = Carbon::createFromFormat(config('app.date_format'), $value)->format('Y-m-d');
+    }
+    public function getDateOfMarriageAttribute($value)
+    {
+        return Carbon::createFromFormat('Y-m-d', $value)->format(config('app.date_format'));
     }
 }

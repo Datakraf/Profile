@@ -15,4 +15,13 @@ class Award extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function setReceivedDateAttribute($value)
+    {
+        $this->attributes['received_date'] = Carbon::createFromFormat(config('app.date_format'), $value)->format('Y-m-d');
+    }
+    public function getReceivedDateAttribute($value)
+    {
+        return Carbon::createFromFormat('Y-m-d', $value)->format(config('app.date_format'));
+    }
 }
